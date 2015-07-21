@@ -1,0 +1,277 @@
+
+.cuerpo{
+	margin:  0 auto;
+	width: 80%;
+	min-width: 720px;
+}
+.titulo{
+	font-family:'Didot';
+	font-weight: normal;;
+	font-size: 7em;
+	padding: 10px;
+	line-height: 0.9em;
+	margin: 10px 0;
+
+}
+
+body{
+	background-color: #f3f3f3;
+}
+header{
+	height: 120px;
+	position: relative;
+	border-bottom: 1px solid black;
+
+
+}
+header .autor
+{
+	margin: 50px 0 0 25px; 
+	font-family: 'DIN-LightRegular';
+	font-size: 36px;
+	text-align: left;
+	display: inline-block;
+}
+
+header .logo
+{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	right: 50%;
+}
+
+header .logo:hover{
+	-webkit-transition: All .8s ease;
+	-webkit-transform: rotate(180deg) scale(1) skew(0deg) translate(0px);
+}
+
+.otros 
+{
+	font-family: 'DIN-LightRegular';
+	font-size: 1.1em;
+	text-align: right;
+	text-transform: uppercase;
+	display: inline-block;
+	position: absolute;
+	right: 0px;
+	top: 15px;
+	margin: 50px 25px 0 0;
+
+}
+
+.otros .menu-header{
+	margin: 0px;
+}
+.otros .menu-header li
+{
+	display: inline-block;
+	padding: 0 5px;
+	
+
+}
+
+
+
+.otros .menu-header li a
+{
+	text-decoration: none;
+	color: black;
+	
+
+}
+.otros .menu-header li a:hover
+{
+	
+	color: red;
+
+
+}
+
+.porcentajes{
+	
+	margin: 0 auto;
+}
+.aV
+{
+	
+	margin: 10px 0;
+	width: 100%;
+	background: #730202;
+	color: white;
+	padding: 10px;
+	overflow: hidden;
+
+
+}
+
+.aV span
+{
+	float: right;
+
+}
+.bV
+{
+
+	margin: 10px 0;
+	width: 100%;
+	background:black;
+	color: white;
+	padding: 10px;
+
+}
+
+.bV span
+{
+	float: right;
+
+
+}
+.tweets
+{
+	padding: 0 0 25px 0;
+	height: 850px;
+	border-bottom: 1px solid black;
+}
+
+.tweets .a
+{
+	height: 100%;
+	width: 45%;
+	float: left;
+	overflow: hidden;
+}
+.tweets .a ul
+{
+	padding: 10px;
+	font-family: 'DIN-LightRegular';
+	font-size: 16px;
+
+}
+
+.tweets .a ul li
+{
+	list-style:none;
+	padding: 10px;
+	
+}
+.tweets .a ul li:nth-child(2n+1)
+{
+	background: #D6D6D6;
+
+}
+
+
+.tweets .a ul li span
+{
+	padding:5px;
+	
+
+}
+.tweets .a ul li img
+{
+	border: 1px solid black;
+	width: 38px;
+	height: 38px;
+
+}
+
+
+.tweets .b
+{
+	height: 100%;
+	width: 45%;
+	float: right;
+	overflow: hidden;
+}
+.tweets .b ul
+{
+	padding: 10px;
+	font-family: 'DIN-LightRegular';
+	font-size: 16px;
+
+}
+
+.tweets .b ul li
+{
+	list-style:none;
+	padding: 10px;
+	
+}
+.tweets .b ul li:nth-child(2n+1)
+{
+	background: #D6D6D6;
+
+}
+
+
+.tweets .b ul li span
+{
+	padding:5px;
+	
+
+}
+.tweets .b ul li img
+{
+	border: 1px solid black;
+	width: 38px;
+	height: 38px;
+
+}
+.consulta
+{
+	padding: 20px;
+}
+
+.consulta h2{
+	font-family: 'DIN-LightRegular';
+	font-size: 64px;
+	text-align: center;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+
+.consulta form 
+{
+
+	width: 600px;
+	margin:0 auto;
+
+}
+
+.consulta form input
+{
+	margin: 0 5px;
+	background: black;
+	color: white;
+	padding: 6px 10px;
+	font-family: 'DIN-LightRegular';
+	font-size: 16px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+
+
+}
+
+.consulta form  .boton
+{
+	padding: 2px 20px;
+	font-family: 'DIN-LightRegular';
+	background: #730202;
+	padding: 6px 20px;
+	-webkit-border-radius: 5px 20px 20px 5px;
+	border-radius:  5px 20px 20px 5px;
+}
+footer
+{
+	margin-top: 25px;
+	border-top: 1px solid black;
+}
+footer h5
+{
+	font-family: 'DIN-LightRegular';
+	font-size: 16px;
+	text-align: center;
+
+}

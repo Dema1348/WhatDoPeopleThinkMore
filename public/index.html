@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>What do people think more?</title>
+	<script src="js/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/estiloM.css">
+</head>
+<body>
+	<div class="cuerpo">
+	<header>
+		<div class="autor">Dema</div>
+		<img class="logo"src="img/D-logo.png" alt="logo">
+		<div class="otros">
+			<ul class="menu-header">
+				<li><a href="eds.perez@outlook.com">Contacto</a></li>
+				<li><a href="http://glacial-retreat-1234.herokuapp.com/">Chat</a></li>
+				<li><a href="http://nodejs.org/">Node op</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="titulo">What do people think more?</div>
+	<div class="porcentajes">
+		<div class="aV"><label id="valPal1">Palabra 1</label><span>0%</span></div>
+		<div class="bV"><label id="valPal2">Palabra 2</label><span>0%</span></div>	
+	</div>
+	<div class="tweets">
+		<div class="a">
+			<ul id="lista">
+				<li></li>
+			</ul>
+		</div>
+		<div class="b">
+			<ul id="lista">
+				<li></li>
+			</ul>
+		</div>
+	</div>
+	<div class="consulta">
+		<h2>Descubre lo que tu quieras</h2>
+		<form>
+			<input id="pal1" type="text" placeholder="Primer valor" required="">
+			<input id="pal2" type="text" placeholder="Segundo valor" required="">
+			<input class="boton" type="submit" value="Preguntar">
+		</form>
+	</div>
+	<footer>
+			<h5 class="diseñador">© 2014 by Edson Pérez, si falla fue problema de capa 8.</h5>
+	</footer>	
+	<script>
+	var socket= io.connect();
+	var a= $('.aV');
+	var b= $('.bV');
+	var aTotal= $('.aV span');
+	var bTotal= $('.bV span');
+	var tweet= $('.tweets');
+	var tweetA= $('.tweets .a ul');
+	var tweetB= $('.tweets .b ul');
+	var enviar= $('.boton');
+	var estado= false;
+	$(function()
+	{
+		
+
+		socket.on('tweet', function (data){
+
+			tweet.prepend(function(){
+				if(data.tipo==0){
+					tweetA.prepend('<li><img src='+data.img+' /> <span>'+data.user+": " +data.text+"</span></li>");
+				}
+				else if(data.tipo==1){
+					tweetB.prepend('<li><img src='+data.img+' /> <span>'+data.user+": " +data.text+"</span></li>");
+				}
+			});
+
+			por= Math.round((data.avalor*9)/10)+10;
+			a.css('width',por+'%');
+			aTotal.text(Math.round(data.avalor)+'%');
+			
+			por2= Math.round((data.bvalor*9)/10)+10;
+			b.css('width',por2+'%');
+			bTotal.text(Math.round(data.bvalor)+'%');
+
+
+		});
+
+		enviar.on('click', function(event){
+			socket.emit('cerrar',{close:estado});
+			event.preventDefault(); 
+			var pal1= $('#pal1').val();
+			var pal2= $('#pal2').val();
+			if(pal1!=pal2)
+			{
+				$('#valPal1').text(pal1);
+				$('#valPal2').text(pal2);
+				socket.emit('consulta',{
+					valor1: pal1,
+					valor2: pal2,
+					a: 0,
+					b: 0,
+					total:0
+				});
+				
+				reset();
+
+
+			}
+			estado=true;
+
+		});
+
+		function reset()
+		{
+			b.css('width','100%');
+			bTotal.text('0%');
+			a.css('width','100%');
+			aTotal.text('0%');
+			$('#lista li').remove();
+			enviar.prop('disabled',true);
+			setTimeout(function()
+				{enviar.prop('disabled',false)}
+				, 5000);
+			
+		}
+
+
+	});
+	</script>
+	</div>				
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+	"name": "buscador",
+	"version": "0.0.1",
+	"private": true ,
+	"dependencies":{
+		"express": "4.10.0",
+		"socket.io": "1.2.0",
+		"twitter": "0.2.13"
+	}
+}
